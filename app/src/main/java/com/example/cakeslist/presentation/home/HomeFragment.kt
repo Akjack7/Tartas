@@ -9,6 +9,7 @@ import com.example.cakeslist.R
 import com.example.cakeslist.core.common.viewBinding
 import com.example.cakeslist.databinding.FragmentHomeBinding
 import com.example.cakeslist.presentation.models.LoadingState
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import org.koin.android.viewmodel.ext.android.viewModel
 
 
@@ -74,6 +75,15 @@ class HomeFragment : Fragment(R.layout.fragment_home), HomeListAdapter.CakeAdapt
     }
 
     override fun onClickCake(description: String) {
-        TODO("Not yet implemented")
+        setDetailAlert(description)
+    }
+
+    private fun setDetailAlert(msg: String) {
+        MaterialAlertDialogBuilder(requireContext()).setTitle(getString(R.string.description))
+            .setMessage(msg).setPositiveButton(
+            getString(
+                R.string.accept
+            )
+        ) { dialog, _ -> dialog.dismiss() }.show()
     }
 }

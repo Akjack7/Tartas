@@ -2,4 +2,6 @@
     <string name="app_name">CakesList</string>
     <string name="generic_error">An error Ocurred, pleasy, try again</string>
     <string name="retry">Retry</string>
+    <string name="description">Description</string>
+    <string name="accept">Accept</string>
 </resources>
