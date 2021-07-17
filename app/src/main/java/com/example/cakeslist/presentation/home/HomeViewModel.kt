@@ -44,6 +44,7 @@ class HomeViewModel (
                     }
                     .collect {
                         _cakesList.postValue(it)
+                        _loadingState.postValue(LoadingState.LOADED)
                     }
             }
         }

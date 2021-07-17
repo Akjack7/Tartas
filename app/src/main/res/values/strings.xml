@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">CakesList</string>
+    <string name="generic_error">An error Ocurred, pleasy, try again</string>
+    <string name="retry">Retry</string>
 </resources>

@@ -5,7 +5,7 @@ import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 
 class CakeRepository(private val cakesApi: CakesApi) {
-     fun getCakes(): Flow<List<Cake>> = flow {
-        emit(cakesApi.getCakes())
+    fun getCakes(): Flow<List<Cake>> = flow {
+        emit(cakesApi.getCakes().distinctBy { it.title }.sortedBy { it.title })
     }
 }
