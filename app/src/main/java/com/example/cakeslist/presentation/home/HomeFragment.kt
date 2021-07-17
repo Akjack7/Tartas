@@ -56,15 +56,20 @@ class HomeFragment : Fragment(R.layout.fragment_home), HomeListAdapter.CakeAdapt
     }
 
     private fun showEmpty(error: String) {
-        binding.errorGroup.isVisible = true
-        binding.errorText.text = error
+        with(binding) {
+            errorGroup.isVisible = true
+            errorText.text = error
+            retryBtn.setOnClickListener { viewModel.getCakes() }
+        }
     }
 
     private fun showLoading(show: Boolean) {
-        binding.retryBtn.isVisible = false
-        binding.progressBar.isVisible = show
-        binding.cakesList.isVisible = !show
-        binding.swipeCakesList.isRefreshing = false
+        with(binding) {
+            errorGroup.isVisible = false
+            progressBar.isVisible = show
+            cakesList.isVisible = !show
+            swipeCakesList.isRefreshing = false
+        }
     }
 
     private fun setupList() {
@@ -81,9 +86,9 @@ class HomeFragment : Fragment(R.layout.fragment_home), HomeListAdapter.CakeAdapt
     private fun setDetailAlert(msg: String) {
         MaterialAlertDialogBuilder(requireContext()).setTitle(getString(R.string.description))
             .setMessage(msg).setPositiveButton(
-            getString(
-                R.string.accept
-            )
-        ) { dialog, _ -> dialog.dismiss() }.show()
+                getString(
+                    R.string.accept
+                )
+            ) { dialog, _ -> dialog.dismiss() }.show()
     }
 }
