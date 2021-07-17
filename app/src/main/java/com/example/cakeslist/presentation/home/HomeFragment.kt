@@ -73,6 +73,8 @@ class HomeFragment : Fragment(R.layout.fragment_home), HomeListAdapter.CakeAdapt
     }
 
     private fun setupList() {
+        // todo, endlesscrolling for data, and pagination
+        // todo, recyclerview adapter for diferent items, for example with this library : implementation 'com.hannesdorfmann:adapterdelegates4:4.3.0'
         binding.cakesList.apply {
             adapter = mAdapter
         }
@@ -84,6 +86,7 @@ class HomeFragment : Fragment(R.layout.fragment_home), HomeListAdapter.CakeAdapt
     }
 
     private fun setDetailAlert(msg: String) {
+        //todo  move this to custom component
         MaterialAlertDialogBuilder(requireContext()).setTitle(getString(R.string.description))
             .setMessage(msg).setPositiveButton(
                 getString(
